@@ -20,18 +20,18 @@ class Counter extends React.Component {
     HandleIncrement=(product)=>
     {
         console.log(product);
-        
-
+        this.setState({count:this.state.count+1});
     }
     doHandleIncrement=()=>
     {
-        this.HandleIncrement
-
+        this.HandleIncrement({id:1});
     }
     render() { 
+        console.log(this.props);
         // return <div>{this.state.tags.length===0 && "Please create new tag!"}{this.renderTags()}</div>
         // return <div><span style={this.styles} className={this.getBadgeClasses()}>{this.state.count}</span><button className="btn btn-secondary btn-sm" onClick={this.clickFeedback}>Increment</button><ul>{this.state.tags.map(tag => <li key={tag}>{ tag }</li>)}</ul></div>;
         return <div><span style={this.styles} className={this.getBadgeClasses()}>{this.state.count}</span><button className="btn btn-secondary btn-sm" onClick={this.clickFeedback}>Increment</button><ul>{this.state.tags.map(tag => <li key={tag}>{ tag }</li>)}</ul></div>;
+        // return <div><span style={this.styles} className={this.getBadgeClasses()}>{this.state.count}</span><button className="btn btn-secondary btn-sm" onClick={()=>this.HandleIncrement(product)}>Increment</button><ul>{this.state.tags.map(tag => <li key={tag}>{ tag }</li>)}</ul></div>;
     }
 
     getBadgeClasses() {
